@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: acornbomb.ma
-//Last modified: Sat, Feb 04, 2023 12:40:55 PM
+//Last modified: Sat, Feb 04, 2023 04:16:42 PM
 //Codeset: UTF-8
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.0";
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "D57013CF-A64F-39EC-527E-FB85A95B36EB";
+fileInfo "UUID" "A3DE039C-4B4E-77A3-B1F8-698F86F3D114";
 createNode transform -s -n "persp";
 	rename -uid "4227015E-E645-A0F2-273A-45B5D5490916";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 7.0581608610748505 2.7625191612711264 -3.7678996218141543 ;
-	setAttr ".r" -type "double3" -15.938352729455813 -243.79999999997821 0 ;
+	setAttr ".t" -type "double3" -0.46374787006686513 8.2967486076443837 -3.6377671522562407 ;
+	setAttr ".r" -type "double3" -71.13835272945569 -229.39999999997178 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "27EF4B9B-9143-C061-15FF-11976F285C20";
 	setAttr -k off ".v" no;
@@ -82,7 +82,7 @@ createNode mesh -n "acornShape" -p "acorn";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50773680210113525 0.5 ;
+	setAttr ".pv" -type "double2" 0.49230998754501343 0.68673965334892273 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -98,27 +98,27 @@ createNode mesh -n "fuseShape" -p "fuse";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.84375 ;
+	setAttr ".pv" -type "double2" 0.50773680210113525 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2D5C552F-934A-7511-9A20-B9898554607F";
+	rename -uid "5512BE90-0F4C-3C6B-228E-C8AD6BEF0AE3";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "F9E21DAE-9249-3032-F3A8-2093A29359B8";
+	rename -uid "15540B32-0248-A605-F353-579F54725672";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "41B49814-0643-F355-5605-3199765C6C60";
+	rename -uid "BCD7A0E9-2A4F-E3C8-01C4-7B924857863A";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "18D6DC4D-F948-1847-579A-8CB839EFA1F5";
+	rename -uid "6C3971D4-8546-D08F-2F46-AD8EAB9DC012";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "72574D18-E34F-B8A2-D2D1-97A0C17A8E7C";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "103F2261-D349-D49D-4D0F-F3AF2E09DDEE";
+	rename -uid "B9AFBA44-5544-77E8-E2D8-34B2AF383B6B";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "7FF86CBB-164B-1819-168E-56B9C3B8A63F";
 	setAttr ".g" yes;
@@ -297,6 +297,45 @@ createNode polyTweak -n "polyTweak4";
 	setAttr ".tk[29]" -type "float3" -0.17076603 -4.8875809e-06 -0.044982374 ;
 	setAttr ".tk[30]" -type "float3" -0.091714323 0 -0.067288399 ;
 	setAttr ".tk[31]" -type "float3" 0.035072535 0 -0.10235059 ;
+createNode polyAutoProj -n "polyAutoProj1";
+	rename -uid "B949D2A2-3A46-0D4D-71CC-82AE62DB9371";
+	setAttr ".cch" yes;
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "f[0:34]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".s" -type "double3" 2.5907520055770874 2.5907520055770874 2.5907520055770874 ;
+	setAttr ".ps" 0.20000000298023224;
+	setAttr ".dl" yes;
+createNode polyMapSewMove -n "polyMapSewMove1";
+	rename -uid "8F7A728E-1747-1E38-0130-CEA1A7265F8A";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "e[11]" "e[45]";
+createNode polyMapSewMove -n "polyMapSewMove2";
+	rename -uid "7C1FC19F-AA49-2B26-7B65-839CF4A14930";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "e[12]" "e[47]";
+createNode polyMapSewMove -n "polyMapSewMove3";
+	rename -uid "B64A90F0-F745-115C-9FA8-D3AB47787D32";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "e[16:17]" "e[57:58]";
+createNode polyMapSewMove -n "polyMapSewMove4";
+	rename -uid "E2FFC600-FC43-49F8-007F-A7826B59CDA2";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "e[35]" "e[38:39]";
+createNode polyTweakUV -n "polyTweakUV1";
+	rename -uid "50ED6785-EA42-8EE6-C3B8-FD9E0522A1E1";
+	setAttr ".uopa" yes;
+	setAttr -s 41 ".uvtk[0:40]" -type "float2" 0.3674185 0.19597188 0.35511899
+		 0.19591576 0.3548328 0.18532783 0.36795935 0.18532822 0.36444137 0.19969448 0.35841671
+		 0.19955286 0.35474384 0.17692256 0.36791778 0.17694488 0.36171749 0.20334284 0.36571327
+		 0.17486453 0.35715541 0.1749877 0.35579979 0.20705174 0.35116965 0.20888782 0.36110324
+		 0.21066803 0.36142895 0.21547998 0.36677855 0.20634142 0.37156153 0.20753229 0.36702889
+		 0.16627109 0.36369023 0.17131829 0.36212012 0.1687144 0.36944935 0.16568977 0.35924149
+		 0.17245704 0.36133805 0.16334134 0.37243465 0.1649729 0.36164129 0.15948468 0.35658672
+		 0.16561508 0.36187786 0.15647525 0.35378027 0.16445285 0.35096502 0.16328698 0.38081139
+		 0.19690847 0.38241845 0.18624273 0.38218558 0.1775018 0.38805279 0.19740343 0.39177769
+		 0.18686801 0.38981545 0.17796469 0.34111843 0.19697458 0.33950171 0.18631026 0.33387747
+		 0.19747609 0.330143 0.18694407 0.33972725 0.17754325 0.33209714 0.17803892;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -337,7 +376,8 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-connectAttr "polySoftEdge2.out" "acornShape.i";
+connectAttr "polyTweakUV1.out" "acornShape.i";
+connectAttr "polyTweakUV1.uvtk[0]" "acornShape.uvst[0].uvtw";
 connectAttr "polySoftEdge1.out" "fuseShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -361,6 +401,13 @@ connectAttr "polyCylinder2.out" "polyTweak3.ip";
 connectAttr "polyTweak4.out" "polySoftEdge2.ip";
 connectAttr "acornShape.wm" "polySoftEdge2.mp";
 connectAttr "polySplit2.out" "polyTweak4.ip";
+connectAttr "polySoftEdge2.out" "polyAutoProj1.ip";
+connectAttr "acornShape.wm" "polyAutoProj1.mp";
+connectAttr "polyAutoProj1.out" "polyMapSewMove1.ip";
+connectAttr "polyMapSewMove1.out" "polyMapSewMove2.ip";
+connectAttr "polyMapSewMove2.out" "polyMapSewMove3.ip";
+connectAttr "polyMapSewMove3.out" "polyMapSewMove4.ip";
+connectAttr "polyMapSewMove4.out" "polyTweakUV1.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "acornShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "fuseShape.iog" ":initialShadingGroup.dsm" -na;
