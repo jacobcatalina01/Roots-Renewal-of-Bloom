@@ -8,12 +8,13 @@ public class ExplodeOnTouch : MonoBehaviour
     [SerializeField] GameObject spawnObjectRef;
     private void Start()
     {
-
         GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        AudioManager.Play(AudioManager.Instance.explosionOnCollide);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision col)
     {
-        if (!GetComponent<GameObjectRef>().go.Contains(other.gameObject))
+        Debug.Log("Play");
+        if (!GetComponent<GameObjectRef>().go.Contains(col.gameObject))
         {
             GameObject go = Instantiate(spawnObjectRef);
             go.transform.position = transform.position;
