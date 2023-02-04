@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bulletRef;
     [SerializeField] GameObject bombRef;
     [SerializeField] GameObject meleeHurtboxRef;
+
+
+
     Inventory inventory;
     PlayerInput controls;
     [SerializeField] float kbForce = 300f;
@@ -30,7 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return item1.type == Item.ItemType.Shield || item2.type == Item.ItemType.Shield;
+            return (item1!=null && item1.type == Item.ItemType.Shield) || (item2 !=null && item2.type == Item.ItemType.Shield);
         }
     }
 
@@ -71,7 +74,9 @@ public class PlayerController : MonoBehaviour
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        ReloadWeapons();
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -82,15 +87,15 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null /*&& item1!=null*/)
+        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null && item1!=null)
         {
-            //shootCoro = StartCoroutine(Use(item1));
-            shootCoro = StartCoroutine(Shoot());
-            //shootCoro = StartCoroutine(AttemptDrop(1));
+            shootCoro = StartCoroutine(Use(item1));
+            //shootCoro = StartCoroutine(Shoot());
+            shootCoro = StartCoroutine(AttemptDrop(1));
         }
         if (controls.Newactionmap.Shoot2.ReadValue<float>() > .5 && shootCoro == null && item2!=null)
         {
-            //shootCoro = StartCoroutine(Use(item2));
+            shootCoro = StartCoroutine(Use(item2));
             shootCoro = StartCoroutine(AttemptDrop(2));
         }
 
@@ -180,6 +185,20 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    public void ReloadWeapons()
+    {
+        Inventory inv = GetComponent<Inventory>();
+        if ((item1==null||item1.type != Item.ItemType.Melee) && (item2==null||item2.type != Item.ItemType.Melee))
+        {
+            inv.meleeWeapon.SetActive(false);
+        }
+        if ((item1 == null || item1.type != Item.ItemType.Shield )&& (item2 == null || item2.type != Item.ItemType.Shield))
+        {
+            inv.shield.SetActive(false);
+        }
+
     }
 
     IEnumerator Shoot()
