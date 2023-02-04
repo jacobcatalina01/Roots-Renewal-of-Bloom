@@ -9,11 +9,12 @@ public class ExplodeOnTouch : MonoBehaviour
     private void Start()
     {
         GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
         AudioManager.Play(AudioManager.Instance.explosionOnCollide);
-        if (!GetComponent<GameObjectRef>().go.Contains(other.gameObject))
+    }
+    private void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("Play");
+        if (!GetComponent<GameObjectRef>().go.Contains(col.gameObject))
         {
             GameObject go = Instantiate(spawnObjectRef);
             go.transform.position = transform.position;
