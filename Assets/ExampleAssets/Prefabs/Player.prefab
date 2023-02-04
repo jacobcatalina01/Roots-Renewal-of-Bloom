@@ -995,7 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedCount: 10
   acornCount: 0
-  meleeWeapon: {fileID: 0}
+  meleeWeapon: {fileID: 6492912912210115031}
   shield: {fileID: 5428149886404646609}
 --- !u!1 &5428149886404646609
 GameObject:
