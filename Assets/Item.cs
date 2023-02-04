@@ -55,6 +55,7 @@ public class Item : MonoBehaviour
         enabled = true;
         Reset();
 
+
         StartCoroutine(PickupAgain());
     }
 
@@ -67,6 +68,11 @@ public class Item : MonoBehaviour
         meleeModel.SetActive(type == ItemType.Melee);
         shieldModel.SetActive(type == ItemType.Shield);
 
+        if (droppedBy != null)
+        {
+            droppedBy.GetComponent<PlayerController>().ReloadWeapons();
+        }
+
 
     }
     IEnumerator PickupAgain()
@@ -74,5 +80,7 @@ public class Item : MonoBehaviour
         yield return new WaitForSeconds(15f);
         droppedBy = null;
     }
+
+
 
 }
