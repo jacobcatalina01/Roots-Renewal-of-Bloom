@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float shootBombSpd = 2f;
 
 
-    [SerializeField] public GameObject item1;
-    [SerializeField] public GameObject item2;
+    [SerializeField] public Item item1;
+    [SerializeField] public Item item2;
 
 
 
@@ -113,18 +113,17 @@ public class PlayerController : MonoBehaviour
         }
         if (whichItem == 1)
         {
+            item1.Drop(transform.position);
             item1 = null;
         }
         else
         {
+            item2.Drop(transform.position);
             item2 = null;
         }
     }
 
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -148,54 +147,65 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator Shoot()
+    IEnumerator Use(Item usedItem)
     {
-        if (inventory.seedCount <= 0)
-        {
-            yield return null;
-            shootCoro = null;
-        }
+        if (usedItem.type == Item.ItemType.Shield) yield return null;
         else
         {
-            inventory.seedCount--;
-            GameObject bullet = Instantiate(bulletRef);
-            bullet.transform.position = transform.position;
-            bullet.GetComponent<Rigidbody>().velocity = new Vector3(
-                forward.x,
-                -Mathf.Sin(cameraRot2.transform.rotation.eulerAngles.x * Mathf.Deg2Rad),
-                forward.y).normalized * shootSpd;
-            bullet.GetComponent<GameObjectRef>().go.Add(this.gameObject);
-            bullet.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-            yield return new WaitForSeconds(.5f);
-            shootCoro = null;
+            usedItem.capacity--;
+            switch (usedItem.type)
+            {
+                case Item.ItemType.Seed:
+                    shootCoro = StartCoroutine(Shoot());
+                    break;
+                case Item.ItemType.Acorn:
+                    shootCoro = StartCoroutine(ShootBomb());
+                    break;
+                case Item.ItemType.Melee:
+                    shootCoro = StartCoroutine(Melee());
+                    break;
+            }
 
+            if (usedItem.capacity <= 0)
+            {
+                Destroy(usedItem);
+            }
         }
+        
+    }
+
+    IEnumerator Shoot()
+    {
+        GameObject bullet = Instantiate(bulletRef);
+        bullet.transform.position = transform.position;
+        bullet.GetComponent<Rigidbody>().velocity = new Vector3(
+            forward.x,
+            -Mathf.Sin(cameraRot2.transform.rotation.eulerAngles.x * Mathf.Deg2Rad),
+            forward.y).normalized * shootSpd;
+        bullet.GetComponent<GameObjectRef>().go.Add(this.gameObject);
+        bullet.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        yield return new WaitForSeconds(.5f);
+        shootCoro = null;
+
 
 
     }
     IEnumerator ShootBomb()
     {
-        if (inventory.acornCount <= 0)
-        {
-            yield return null;
-            shootCoro = null;
-        }
-        else
-        {
-            inventory.acornCount--;
-            GameObject bomb = Instantiate(bombRef);
-            bomb.transform.position = transform.position;
-            float sin = Mathf.Sin(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
-            float cos = Mathf.Cos(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
-            bomb.GetComponent<Rigidbody>().velocity = new Vector3(
-                forward.x,
-                -Mathf.Sin(cameraRot2.transform.rotation.eulerAngles.x * Mathf.Deg2Rad) + 1,
-                forward.y).normalized * shootBombSpd;
-            bomb.GetComponent<GameObjectRef>().go.Add(gameObject);
-            bomb.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
-            yield return new WaitForSeconds(.5f);
-            shootCoro = null;
-        }
+        
+        GameObject bomb = Instantiate(bombRef);
+        bomb.transform.position = transform.position;
+        float sin = Mathf.Sin(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        bomb.GetComponent<Rigidbody>().velocity = new Vector3(
+            forward.x,
+            -Mathf.Sin(cameraRot2.transform.rotation.eulerAngles.x * Mathf.Deg2Rad) + 1,
+            forward.y).normalized * shootBombSpd;
+        bomb.GetComponent<GameObjectRef>().go.Add(gameObject);
+        bomb.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        yield return new WaitForSeconds(.5f);
+        shootCoro = null;
+        
 
 
     }
