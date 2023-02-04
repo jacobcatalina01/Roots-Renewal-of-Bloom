@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: acornbomb.ma
-//Last modified: Sat, Feb 04, 2023 04:05:10 PM
+//Last modified: Sat, Feb 04, 2023 04:16:42 PM
 //Codeset: UTF-8
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.0";
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "4BA4FF02-A747-3C01-E803-FEA176B2905C";
+fileInfo "UUID" "A3DE039C-4B4E-77A3-B1F8-698F86F3D114";
 createNode transform -s -n "persp";
 	rename -uid "4227015E-E645-A0F2-273A-45B5D5490916";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.3705677380412395 5.872601882682055 -6.1294862997310879 ;
-	setAttr ".r" -type "double3" -39.938352729454827 -230.9999999999776 0 ;
+	setAttr ".t" -type "double3" -0.46374787006686513 8.2967486076443837 -3.6377671522562407 ;
+	setAttr ".r" -type "double3" -71.13835272945569 -229.39999999997178 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "27EF4B9B-9143-C061-15FF-11976F285C20";
 	setAttr -k off ".v" no;
@@ -82,7 +82,7 @@ createNode mesh -n "acornShape" -p "acorn";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.077814184129238129 0.54020038247108459 ;
+	setAttr ".pv" -type "double2" 0.49230998754501343 0.68673965334892273 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
