@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8304871786081515262}
   - component: {fileID: 8712949930201235407}
   - component: {fileID: 3096962572688107050}
-  - component: {fileID: 534198152205802374}
   m_Layer: 0
   m_Name: OceanLowLOD
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &534198152205802374
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7380998950941435910}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &7764050712594200434
 GameObject:
   m_ObjectHideFlags: 0
