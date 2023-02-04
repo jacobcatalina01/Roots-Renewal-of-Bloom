@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: seedbullet.ma
-//Last modified: Fri, Feb 03, 2023 11:06:28 PM
+//Last modified: Sat, Feb 04, 2023 12:41:50 PM
 //Codeset: UTF-8
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "984FE73B-0445-CC59-E9B8-86BCDE69887E";
+fileInfo "UUID" "C16CB427-6E42-ED9D-1795-6A9C525581CE";
 createNode transform -s -n "persp";
 	rename -uid "40085404-154B-F813-21D8-7D8EE77C1479";
 	setAttr ".v" no;
@@ -90,20 +90,20 @@ createNode mesh -n "seedShape" -p "seed";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "0713702E-2D40-C4D7-B9F0-0FA3644FAB62";
+	rename -uid "48E8B46C-3245-EE18-1ADE-1984BE0DF6B2";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "2287FC4C-994C-199A-AE1D-C2A5DD830904";
+	rename -uid "0D3C8A25-5A41-21B5-B403-69BCAF02DA4E";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "1AE0EF56-8241-2AAE-8CD3-05A512428639";
+	rename -uid "BB19036F-7045-7CEC-D925-D6A503263098";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "676D550D-8048-D2B6-7517-3FA52E1470C7";
+	rename -uid "460FB4DD-2849-9522-61E4-A08F15DCEA51";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "BE07B818-594B-D095-5CBD-FBBBC20FAB02";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "AAB514F9-8E42-A575-A6D9-44B3CCF459B6";
+	rename -uid "EF21EEA8-8743-36C9-C389-579BF98D73E4";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "E64E48E4-B349-23B5-7CAB-12817574D0A0";
 	setAttr ".g" yes;
@@ -171,6 +171,12 @@ createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "E821DB7A-044E-4377-F7F0-EC9C57712EB5";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
+createNode polySoftEdge -n "polySoftEdge1";
+	rename -uid "651289B3-8F4A-0354-26D0-CFA49B70381D";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[*]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".a" 0;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -210,9 +216,7 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
-connectAttr "polyPlatonic1.output" "seedShape.i";
+connectAttr "polySoftEdge1.out" "seedShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -223,6 +227,8 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 		 -na;
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "polyPlatonic1.output" "polySoftEdge1.ip";
+connectAttr "seedShape.wm" "polySoftEdge1.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "seedShape.iog" ":initialShadingGroup.dsm" -na;
 // End of seedbullet.ma
