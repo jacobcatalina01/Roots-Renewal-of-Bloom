@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Bullet
+  - Bomb
+  - Melee
+  - WinZone
+  - SeedPickup
+  - AcornPickup
   layers:
   - Default
   - TransparentFX
