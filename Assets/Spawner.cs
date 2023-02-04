@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject acornRef;
-    [SerializeField] GameObject seedRef;
+    [SerializeField] GameObject itemRef;
     [SerializeField] int mode = 0;
     GameObject spawnObject = null;
     // Start is called before the first frame update
@@ -24,27 +23,41 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator SpawnAfterTime()
     {
-        spawnObject = Instantiate(ChooseObject(), Vector3.zero, Quaternion.identity);
+        spawnObject = Instantiate(itemRef, Vector3.zero, Quaternion.identity);
+        spawnObject.GetComponent<Item>().type = ChooseObject();
+        spawnObject.GetComponent<Item>().Reset();
         spawnObject.SetActive(false);
         spawnObject.transform.position = transform.position;
         yield return new WaitForSeconds(Random.Range(10f, 15f));
         spawnObject.SetActive(true);
     }
 
-    GameObject ChooseObject()
+    Item.ItemType ChooseObject()
     {
         switch (mode)
         {
             case 1:
-                return acornRef;
+                return Item.ItemType.Seed;
             case 2:
-                return seedRef;
+                return Item.ItemType.Acorn;
             default:
-                if (Random.Range(0f, 1f) < .5f)
+                float rand = Random.Range(0f, 1f);
+                if (rand < .25f)
                 {
-                    return acornRef;
+                    return Item.ItemType.Seed;
                 }
-                return seedRef;
+                else if (rand >= .25f && rand < .5f)
+                {
+                    return Item.ItemType.Acorn;
+                }
+                else if (rand >= .5f && rand < .75f)
+                {
+                    return Item.ItemType.Melee;
+                }
+                else
+                {
+                    return Item.ItemType.Shield;
+                }
         }
     }
 }

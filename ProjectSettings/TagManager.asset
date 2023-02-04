@@ -9,8 +9,7 @@ TagManager:
   - Bomb
   - Melee
   - WinZone
-  - SeedPickup
-  - AcornPickup
+  - Pickup
   layers:
   - Default
   - TransparentFX
