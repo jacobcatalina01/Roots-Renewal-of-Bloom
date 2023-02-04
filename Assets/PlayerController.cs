@@ -26,6 +26,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Item item1;
     [SerializeField] public Item item2;
 
+    public bool hasShield
+    {
+        get
+        {
+            return item1.type == Item.ItemType.Shield || item2.type == Item.ItemType.Shield;
+        }
+    }
 
 
     public float winTimer = 0f;
@@ -75,10 +82,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null && item1!=null)
+        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null /*&& item1!=null*/)
         {
             //shootCoro = StartCoroutine(Use(item1));
-            shootCoro = StartCoroutine(AttemptDrop(1));
+            shootCoro = StartCoroutine(Shoot());
+            //shootCoro = StartCoroutine(AttemptDrop(1));
         }
         if (controls.Newactionmap.Shoot2.ReadValue<float>() > .5 && shootCoro == null && item2!=null)
         {

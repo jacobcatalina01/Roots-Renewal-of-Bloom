@@ -9,11 +9,7 @@ public class TakesKnockback : MonoBehaviour
     {
         get
         {
-            if (GetComponentInChildren<Shield>() != null && GetComponentInChildren<Shield>().enabled)
-            {
-                return true;
-            }
-            return false;
+            return GetComponentInChildren <PlayerController>().hasShield;
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154281847}
   m_Layer: 0
-  m_Name: Slot1 (1)
+  m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154281846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -362.3888, y: 64.65162, z: -425.33838}
+  m_LocalPosition: {x: -362.3888, y: 29, z: -425.33838}
   m_LocalScale: {x: 850.67676, y: 850.67676, z: 850.67676}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -324,6 +324,37 @@ Transform:
   m_Father: {fileID: 1992147750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &579891236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579891237}
+  m_Layer: 0
+  m_Name: Shield Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579891237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579891236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.038, z: -0.052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1486748759}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &591881724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,12 +454,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d961becf6e0de490496ba05e9be1d521,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.4
+      value: 16.503
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d961becf6e0de490496ba05e9be1d521,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.33
+      value: 2.461
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d961becf6e0de490496ba05e9be1d521,
         type: 3}
@@ -980,6 +1011,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1476486300}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1486748759 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4620544935329278828, guid: aa1c7e37546ed2f4ca5dc28e76876f6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5158240458667975126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621839623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1359,7 @@ GameObject:
   - component: {fileID: 1992147753}
   - component: {fileID: 1992147752}
   - component: {fileID: 1992147751}
+  - component: {fileID: 1992147754}
   m_Layer: 5
   m_Name: Player1UI
   m_TagString: Untagged
@@ -1412,6 +1450,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!114 &1992147754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992147749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ff6d52e34ed0a4d86f57111aa575c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2074929025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1581,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2316185539631974399, guid: aa1c7e37546ed2f4ca5dc28e76876f6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923660541845147671, guid: aa1c7e37546ed2f4ca5dc28e76876f6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158240458227641230, guid: aa1c7e37546ed2f4ca5dc28e76876f6d,
+        type: 3}
+      propertyPath: follow
+      value: 
+      objectReference: {fileID: 579891236}
     - target: {fileID: 5158240459396461014, guid: aa1c7e37546ed2f4ca5dc28e76876f6d,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
