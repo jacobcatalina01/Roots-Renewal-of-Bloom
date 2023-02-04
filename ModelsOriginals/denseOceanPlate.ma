@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: denseOceanPlate.ma
-//Last modified: Sat, Feb 04, 2023 04:45:15 PM
+//Last modified: Sat, Feb 04, 2023 04:52:45 PM
 //Codeset: UTF-8
 requires maya "2023";
 requires -nodeType "polyDisc" "modelingToolkit" "0.0.0.0";
@@ -10,7 +10,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Mac OS X 10.16";
-fileInfo "UUID" "004FD100-5A4D-E82E-B5D0-15A38A0DA2BF";
+fileInfo "UUID" "6AEDDC80-4A4E-8888-F980-A38BBD8CFD6F";
 createNode transform -s -n "persp";
 	rename -uid "B4D5D349-1D46-4ECD-449A-FE87AC0E81B6";
 	setAttr ".v" no;
@@ -105,8 +105,8 @@ createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode polyDisc -n "polyDisc1";
 	rename -uid "3DFC3786-C444-C35B-BCC2-4D82F00E31DE";
-	setAttr ".subdivisions" 6;
-	setAttr ".radius" 10;
+	setAttr ".subdivisions" 7;
+	setAttr ".radius" 20;
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "E0632B0C-E240-7EF7-9E6B-E48404999E19";
 	setAttr ".b" -type "string" (
