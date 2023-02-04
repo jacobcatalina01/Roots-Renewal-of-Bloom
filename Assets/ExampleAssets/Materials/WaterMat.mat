@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _RippleDensity: 100
+    - _RippleDensity: 500
     - _RippleSpeed: 1
     - _Slimness: 4.05
     - _WaveSpeed: 0.2
