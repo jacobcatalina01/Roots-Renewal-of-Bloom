@@ -62,6 +62,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f319433-9103-40db-9816-45749d7efe63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +205,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f263982c-bf3e-48b8-88c2-710501fec69e"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +240,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Newactionmap_Jump = m_Newactionmap.FindAction("Jump", throwIfNotFound: true);
         m_Newactionmap_Aim = m_Newactionmap.FindAction("Aim", throwIfNotFound: true);
         m_Newactionmap_Shoot = m_Newactionmap.FindAction("Shoot", throwIfNotFound: true);
+        m_Newactionmap_Shoot2 = m_Newactionmap.FindAction("Shoot2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -283,6 +304,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_Jump;
     private readonly InputAction m_Newactionmap_Aim;
     private readonly InputAction m_Newactionmap_Shoot;
+    private readonly InputAction m_Newactionmap_Shoot2;
     public struct NewactionmapActions
     {
         private @PlayerInput m_Wrapper;
@@ -291,6 +313,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Newactionmap_Jump;
         public InputAction @Aim => m_Wrapper.m_Newactionmap_Aim;
         public InputAction @Shoot => m_Wrapper.m_Newactionmap_Shoot;
+        public InputAction @Shoot2 => m_Wrapper.m_Newactionmap_Shoot2;
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -312,6 +335,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot;
+                @Shoot2.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
+                @Shoot2.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
+                @Shoot2.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
             }
             m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
             if (instance != null)
@@ -328,6 +354,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Shoot2.started += instance.OnShoot2;
+                @Shoot2.performed += instance.OnShoot2;
+                @Shoot2.canceled += instance.OnShoot2;
             }
         }
     }
@@ -347,5 +376,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnShoot2(InputAction.CallbackContext context);
     }
 }

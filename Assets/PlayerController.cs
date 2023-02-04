@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static PlayerInput;
@@ -21,7 +22,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float shootSpd = 4f;
     [SerializeField] float shootBombSpd = 2f;
 
-    
+
+    [SerializeField] public GameObject item1;
+    [SerializeField] public GameObject item2;
+
+
 
     public float winTimer = 0f;
 
@@ -70,22 +75,50 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null)
+        if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null && item1!=null)
         {
-            shootCoro = StartCoroutine(Shoot());
+            //shootCoro = StartCoroutine(Use(item1));
+            shootCoro = StartCoroutine(AttemptDrop(1));
+        }
+        if (controls.Newactionmap.Shoot2.ReadValue<float>() > .5 && shootCoro == null && item2!=null)
+        {
+            //shootCoro = StartCoroutine(Use(item2));
+            shootCoro = StartCoroutine(AttemptDrop(2));
         }
 
         Vector2 axis = controls.Newactionmap.Move.ReadValue<Vector2>();
         float sin = Mathf.Sin(-1*cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
         float cos = Mathf.Cos(-1*cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
-        axis = new Vector2(cos * axis.x - sin * axis.y, sin * axis.x + cos * axis.y);
-        rb.AddForce(new Vector3(mvSpeed * axis.x, 0, mvSpeed * axis.y));
+        Vector2 targetVelocity = new Vector2(cos * axis.x - sin * axis.y, sin * axis.x + cos * axis.y).normalized * mvSpeed;
+        rb.velocity = new Vector3((targetVelocity.x - rb.velocity.x) * .1f + rb.velocity.x,rb.velocity.y,(targetVelocity.y-rb.velocity.z)*.1f+rb.velocity.z);
 
 
         Vector2 aim = controls.Newactionmap.Aim.ReadValue<Vector2>();
 
         cameraRot.transform.Rotate(new Vector3(0, 1, 0), aim.x, Space.World);
         cameraRot2.transform.Rotate(new Vector3(aim.y,0, 0));
+    }
+
+    IEnumerator AttemptDrop(int whichItem)
+    {
+        float timer = 1.5f;
+        while (timer>0f)
+        {
+            timer -= Time.deltaTime;
+            if(whichItem == 1 ? controls.Newactionmap.Shoot.ReadValue<float>() < .5 : controls.Newactionmap.Shoot2.ReadValue<float>() < .5)
+            {
+                break;
+            }
+            yield return null;
+        }
+        if (whichItem == 1)
+        {
+            item1 = null;
+        }
+        else
+        {
+            item2 = null;
+        }
     }
 
 
