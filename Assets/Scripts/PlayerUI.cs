@@ -12,10 +12,7 @@ public class PlayerUI : MonoBehaviour
     public TMP_Text item1Text;
     public TMP_Text item2Text;
 
-    int acornCapacity = 5;
-    int seedCapacity = 10;
-    int meleeCapacity = 15;
-    int shieldCapacity = 10;
+    
 
 
     void Start()
