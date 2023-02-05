@@ -5,5 +5,5 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    
+
 }
