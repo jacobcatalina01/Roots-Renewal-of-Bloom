@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TakesKnockback : MonoBehaviour
 {
+    public GameObject playerHitVFX;
+
+    public GameObject smokeVFX;
+
+    public int knockbacksmokecutoff;
+
     [SerializeField] float kbForce = 10f;
     bool shielded
     {
@@ -17,6 +23,7 @@ public class TakesKnockback : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet") && !other.GetComponent<GameObjectRef>().go.Contains(this.gameObject))
         {
             AudioManager.Play(AudioManager.Instance.seedhit);
+            Instantiate(playerHitVFX, transform.position, Quaternion.identity);
             TakeKnockback(other.GetComponent<Rigidbody>().velocity, 1f, shielded);
             Destroy(other.gameObject);
         }
@@ -28,13 +35,25 @@ public class TakesKnockback : MonoBehaviour
         if (other.gameObject.CompareTag("Melee") && !other.GetComponent<GameObjectRef>().go.Contains(this.gameObject))
         {
             AudioManager.Play(AudioManager.Instance.meleehit);
+            Instantiate(playerHitVFX, transform.position, Quaternion.identity);
             TakeKnockback(transform.position - other.gameObject.transform.position, 1.5f, shielded);
             other.GetComponent<GameObjectRef>().go.Add(gameObject);
         }
     }
     public void TakeKnockback(Vector3 s, float scale, bool isShielded)
     {
-        GetComponent<Rigidbody>().AddForce((s).normalized * kbForce * scale * (isShielded ? .5f : 1));
+
+        var knockbackforce = (s).normalized * kbForce * scale * (isShielded ? .5f : 1);
+
+        GetComponent<Rigidbody>().AddForce(knockbackforce);
+
+        if (knockbackforce.magnitude > knockbacksmokecutoff)
+        {
+
+            var effect = Instantiate(smokeVFX, transform.position, Quaternion.identity);
+
+            effect.transform.parent = transform;
+        }
 
         if (isShielded)
         {

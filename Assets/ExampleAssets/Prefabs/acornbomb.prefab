@@ -244,8 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e160337e519a73c478f7270ad947af98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObjectRef: {fileID: 7461615256052334563, guid: 1a863bbaaf4a81542ab4f989628a8baf,
+  explosionVFX: {fileID: 4160876262647043290, guid: 7375b9c824c6e4c8186b2b67d73ebb9f,
     type: 3}
+  spawnObjectRef: {fileID: 0}
 --- !u!114 &4901088126630170164
 MonoBehaviour:
   m_ObjectHideFlags: 0
