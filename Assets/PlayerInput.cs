@@ -71,6 +71,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""c29cc7f7-1d68-4df8-9c5b-0a522e3e0106"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""0d0941ae-3c26-4a4a-837e-28cfd5c6167b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,6 +289,50 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""867a51f7-f9d1-4597-a53d-fce09c17fee5"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""705f5ef1-f731-4e52-8f74-b3fff4b3f4db"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30252776-2603-4c25-8564-4a4ff30f082e"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77a093f8-c660-444e-9d1d-3711f333795a"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -286,17 +348,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
-        },
-        {
-            ""name"": ""New control scheme1"",
-            ""bindingGroup"": ""New control scheme1"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<XInputController>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
         }
     ]
 }");
@@ -307,6 +358,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Newactionmap_Aim = m_Newactionmap.FindAction("Aim", throwIfNotFound: true);
         m_Newactionmap_Shoot = m_Newactionmap.FindAction("Shoot", throwIfNotFound: true);
         m_Newactionmap_Shoot2 = m_Newactionmap.FindAction("Shoot2", throwIfNotFound: true);
+        m_Newactionmap_Select = m_Newactionmap.FindAction("Select", throwIfNotFound: true);
+        m_Newactionmap_Back = m_Newactionmap.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,6 +424,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Newactionmap_Aim;
     private readonly InputAction m_Newactionmap_Shoot;
     private readonly InputAction m_Newactionmap_Shoot2;
+    private readonly InputAction m_Newactionmap_Select;
+    private readonly InputAction m_Newactionmap_Back;
     public struct NewactionmapActions
     {
         private @PlayerInput m_Wrapper;
@@ -380,6 +435,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Newactionmap_Aim;
         public InputAction @Shoot => m_Wrapper.m_Newactionmap_Shoot;
         public InputAction @Shoot2 => m_Wrapper.m_Newactionmap_Shoot2;
+        public InputAction @Select => m_Wrapper.m_Newactionmap_Select;
+        public InputAction @Back => m_Wrapper.m_Newactionmap_Back;
         public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -404,6 +461,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shoot2.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
                 @Shoot2.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
                 @Shoot2.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnShoot2;
+                @Select.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnSelect;
+                @Select.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnSelect;
+                @Select.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnSelect;
+                @Back.started -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_NewactionmapActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_NewactionmapActionsCallbackInterface = instance;
             if (instance != null)
@@ -423,6 +486,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Shoot2.started += instance.OnShoot2;
                 @Shoot2.performed += instance.OnShoot2;
                 @Shoot2.canceled += instance.OnShoot2;
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -436,15 +505,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
         }
     }
-    private int m_Newcontrolscheme1SchemeIndex = -1;
-    public InputControlScheme Newcontrolscheme1Scheme
-    {
-        get
-        {
-            if (m_Newcontrolscheme1SchemeIndex == -1) m_Newcontrolscheme1SchemeIndex = asset.FindControlSchemeIndex("New control scheme1");
-            return asset.controlSchemes[m_Newcontrolscheme1SchemeIndex];
-        }
-    }
     public interface INewactionmapActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -452,5 +512,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnShoot2(InputAction.CallbackContext context);
+        void OnSelect(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }
