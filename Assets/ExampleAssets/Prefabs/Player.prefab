@@ -627,7 +627,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5428149885918015958}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d663aba7273bb2d47b8a4fa5cbfd4236, type: 3}
   m_Name: 
@@ -636,9 +636,12 @@ MonoBehaviour:
   mvSpeed: 10
   cameraRot: {fileID: 5428149885918015958}
   cameraRot2: {fileID: 5158240459709151282}
-  bulletRef: {fileID: 0}
-  bombRef: {fileID: 0}
-  meleeHurtboxRef: {fileID: 0}
+  bulletRef: {fileID: 1266157870310298924, guid: 1b016075d2798654c8f7c3bfde7ed0b5,
+    type: 3}
+  bombRef: {fileID: 3382542238935453662, guid: 8f118c74c4080fe45b485096f0231a0b, type: 3}
+  meleeHurtboxRef: {fileID: 2328104321842628344, guid: f22f222f371ed324a927e9d2a1fa67a5,
+    type: 3}
+  numGamepad: 0
   kbForce: 30
   shootSpd: 4
   shootBombSpd: 1

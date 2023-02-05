@@ -131,8 +131,30 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8be22818-acee-4f6a-9b00-67acd5dc5665"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""New control scheme"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a41b6a80-caea-4f71-b9fa-2b23b9256518"",
                     ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c906392-b14f-472f-a0e5-208502514d9c"",
+                    ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -197,8 +219,30 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""eb84604f-728b-4613-8731-e55e8927cf86"",
+                    ""path"": ""<XInputController>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""34eb80b6-59c6-46a3-b997-16d36740113d"",
                     ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ee485a5-220a-47d7-aaea-d83807b2b499"",
+                    ""path"": ""<XInputController>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -216,6 +260,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30f3db8e-8c55-4012-b301-5793c9c2c71c"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +282,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""New control scheme1"",
+            ""bindingGroup"": ""New control scheme1"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -368,6 +434,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         {
             if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
             return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
+        }
+    }
+    private int m_Newcontrolscheme1SchemeIndex = -1;
+    public InputControlScheme Newcontrolscheme1Scheme
+    {
+        get
+        {
+            if (m_Newcontrolscheme1SchemeIndex == -1) m_Newcontrolscheme1SchemeIndex = asset.FindControlSchemeIndex("New control scheme1");
+            return asset.controlSchemes[m_Newcontrolscheme1SchemeIndex];
         }
     }
     public interface INewactionmapActions

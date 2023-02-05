@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bombRef;
     [SerializeField] GameObject meleeHurtboxRef;
 
-
+    [SerializeField] int numGamepad;
 
     Inventory inventory;
     PlayerInput controls;
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
         if (controls == null)
         {
             controls = new PlayerInput();
+
+            controls.devices = new[] { Gamepad.all[numGamepad] };
             // Tell the "gameplay" action map that we want to get told about
             // when actions get triggered.
             //controls.Newactionmap.SetCallbacks(this);
@@ -81,22 +83,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        ReloadWeapons();
         if (controls.Newactionmap.Jump.ReadValue<float>()>.5 && onGround)
         {
             rb.AddForce(new Vector3(0f,jForce,0f));
         }
-
-
         if (controls.Newactionmap.Shoot.ReadValue<float>() > .5 && shootCoro ==null && item1!=null)
         {
-            shootCoro = StartCoroutine(Use(item1));
+            Use(item1);
             //shootCoro = StartCoroutine(Shoot());
-            shootCoro = StartCoroutine(AttemptDrop(1));
+            StartCoroutine(AttemptDrop(1));
         }
         if (controls.Newactionmap.Shoot2.ReadValue<float>() > .5 && shootCoro == null && item2!=null)
         {
-            shootCoro = StartCoroutine(Use(item2));
-            shootCoro = StartCoroutine(AttemptDrop(2));
+            Use(item2);
+            StartCoroutine(AttemptDrop(2));
         }
 
         Vector2 axis = controls.Newactionmap.Move.ReadValue<Vector2>();
@@ -115,24 +117,30 @@ public class PlayerController : MonoBehaviour
     IEnumerator AttemptDrop(int whichItem)
     {
         float timer = 1.5f;
-        while (timer>0f)
+        while (true)
         {
             timer -= Time.deltaTime;
             if(whichItem == 1 ? controls.Newactionmap.Shoot.ReadValue<float>() < .5 : controls.Newactionmap.Shoot2.ReadValue<float>() < .5)
             {
                 break;
+                
             }
             yield return null;
-        }
-        if (whichItem == 1)
-        {
-            item1.Drop(transform.position);
-            item1 = null;
-        }
-        else
-        {
-            item2.Drop(transform.position);
-            item2 = null;
+            if (timer < 0f)
+            {
+
+                if (whichItem == 1)
+                {
+                    item1.Drop(transform.position);
+                    item1 = null;
+                }
+                else
+                {
+                    item2.Drop(transform.position);
+                    item2 = null;
+                }
+                break;
+            }
         }
     }
 
@@ -160,9 +168,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator Use(Item usedItem)
+    void Use(Item usedItem)
     {
-        if (usedItem.type == Item.ItemType.Shield) yield return null;
+        if (usedItem.type == Item.ItemType.Shield) return;
         else
         {
             usedItem.capacity--;
@@ -184,7 +192,8 @@ public class PlayerController : MonoBehaviour
 
             if (usedItem.capacity <= 0)
             {
-                Destroy(usedItem);
+                Destroy(usedItem.gameObject);
+
             }
         }
         
@@ -192,7 +201,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReloadWeapons()
     {
-        Inventory inv = GetComponent<Inventory>();
+        Inventory inv = inventory;
         if ((item1==null||item1.type != Item.ItemType.Melee) && (item2==null||item2.type != Item.ItemType.Melee))
         {
             inv.meleeWeapon.SetActive(false);

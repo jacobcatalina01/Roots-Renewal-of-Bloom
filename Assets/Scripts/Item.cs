@@ -47,15 +47,16 @@ public class Item : MonoBehaviour
     {
         droppedBy = player;
         transform.position = new Vector3(0, -30, 0);
-        enabled = false;
-        AudioManager.Play(AudioManager.Instance.pickup);
+        gameObject.SetActive(false);
     }
 
     public void Drop(Vector3 position)
     {
-        enabled = true;
+        gameObject.SetActive(true);
+        transform.position = position;
         Reset();
 
+        Destroy(gameObject);
 
         StartCoroutine(PickupAgain());
     }
