@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845072573774967575}
+  - component: {fileID: 8920878954072679606}
   m_Layer: 0
   m_Name: StickPrefab
   m_TagString: Untagged
@@ -32,6 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8920878954072679606
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733185601070797265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &652405556301873317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +120,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 087b219af3e984dceb79806404fed958, type: 2}
+    - target: {fileID: -4259848092785565357, guid: 111640e583e38bc4fa5773d9f7dec399,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 087b219af3e984dceb79806404fed958, type: 2}
     - target: {fileID: -3082433930507134019, guid: 111640e583e38bc4fa5773d9f7dec399,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -119,8 +145,40 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 087b219af3e984dceb79806404fed958, type: 2}
+    - target: {fileID: 3440451912799493365, guid: 111640e583e38bc4fa5773d9f7dec399,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 087b219af3e984dceb79806404fed958, type: 2}
+    - target: {fileID: 8548973947427257488, guid: 111640e583e38bc4fa5773d9f7dec399,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 087b219af3e984dceb79806404fed958, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111640e583e38bc4fa5773d9f7dec399, type: 3}
+--- !u!1 &417892159556976116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 111640e583e38bc4fa5773d9f7dec399,
+    type: 3}
+  m_PrefabInstance: {fileID: 652405556301873317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &5965602503040196290
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417892159556976116}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 8265942560707367790, guid: 111640e583e38bc4fa5773d9f7dec399,
+    type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1046935287703283534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 111640e583e38bc4fa5773d9f7dec399,
