@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         Vector2 aim = controls.Newactionmap.Aim.ReadValue<Vector2>();
 
         cameraRot.transform.Rotate(new Vector3(0, 1, 0), aim.x, Space.World);
-        cameraRot2.transform.Rotate(new Vector3(aim.y,0, 0));
+        cameraRot2.transform.Rotate(new Vector3((cameraRot2.transform.eulerAngles.x < 310&& cameraRot2.transform.eulerAngles.x > 300 && -aim.y<0) || (cameraRot2.transform.eulerAngles.x > 30 && cameraRot2.transform.eulerAngles.x < 40 && -aim.y > 0) ? 0 :-aim.y,0, 0));
     }
 
     IEnumerator AttemptDrop(int whichItem)
