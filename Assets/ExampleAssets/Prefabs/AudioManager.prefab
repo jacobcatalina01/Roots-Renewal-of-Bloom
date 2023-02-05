@@ -46,6 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionOnCollide: {fileID: 8300000, guid: f199d5c745c584869bad7f9e9305dd17, type: 3}
+  acornLauncher: {fileID: 8300000, guid: a84bcd1db132348acbaf48162cb2f130, type: 3}
+  swing: {fileID: 8300000, guid: c1e52f1e83d0b4e02815373a1cbc9124, type: 3}
+  seedshot: {fileID: 8300000, guid: d4a6755872b7941789076f71bd5b9b65, type: 3}
+  pickup: {fileID: 8300000, guid: 8e94d68e66d294cb7a6c8e0fcf73e552, type: 3}
+  seedhit: {fileID: 8300000, guid: 736d85c0da49e4d5398c524ce4ff6ab7, type: 3}
+  meleehit: {fileID: 8300000, guid: 4c0f62298b19642a59512e32357f8e99, type: 3}
+  shieldDeflect: {fileID: 8300000, guid: 6d0a1429f8fb341c481f8b0a36a5c9ef, type: 3}
 --- !u!81 &-5401105663692737762
 AudioListener:
   m_ObjectHideFlags: 0

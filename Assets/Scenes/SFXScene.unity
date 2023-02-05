@@ -873,6 +873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedCount: 10
   acornCount: 0
+  meleeWeapon: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!1 &1426761719
 GameObject:
   m_ObjectHideFlags: 0

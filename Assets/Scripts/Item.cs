@@ -48,6 +48,7 @@ public class Item : MonoBehaviour
         droppedBy = player;
         transform.position = new Vector3(0, -30, 0);
         enabled = false;
+        AudioManager.Play(AudioManager.Instance.pickup);
     }
 
     public void Drop(Vector3 position)

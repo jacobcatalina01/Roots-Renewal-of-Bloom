@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    public AudioClip explosionOnCollide;
+
+    public AudioClip acornLauncher;
+
+    public AudioClip swing;
+
+    public AudioClip seedshot;
+
+    public AudioClip pickup;
+
+    public AudioClip seedhit;
+
+    public AudioClip meleehit;
+
+    public AudioClip shieldDeflect;
+
     public static AudioManager Instance;
+
 
     private void Awake()
     {
@@ -18,8 +36,6 @@ public class AudioManager : MonoBehaviour
             Destroy(this);
         }
     }
-
-    public AudioClip explosionOnCollide;
 
 
     // Start is called before the first frame update

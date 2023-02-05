@@ -170,12 +170,15 @@ public class PlayerController : MonoBehaviour
             {
                 case Item.ItemType.Seed:
                     shootCoro = StartCoroutine(Shoot());
+                    AudioManager.Play(AudioManager.Instance.seedshot);
                     break;
                 case Item.ItemType.Acorn:
                     shootCoro = StartCoroutine(ShootBomb());
+                    AudioManager.Play(AudioManager.Instance.acornLauncher);
                     break;
                 case Item.ItemType.Melee:
                     shootCoro = StartCoroutine(Melee());
+                    AudioManager.Play(AudioManager.Instance.swing);
                     break;
             }
 
