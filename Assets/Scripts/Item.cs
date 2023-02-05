@@ -19,6 +19,8 @@ public class Item : MonoBehaviour
     public GameObject droppedBy = null;
 
 
+
+
     public static Dictionary<ItemType,int> maxCapacity = new Dictionary<ItemType, int>()
     {
         {ItemType.Seed, 25},
@@ -84,6 +86,33 @@ public class Item : MonoBehaviour
         droppedBy = null;
     }
 
-
+    public string GetName()
+    {
+        string ans = "";
+        switch (type)
+        {
+            case ItemType.Acorn:
+                ans += "Acorn Bomb: ";
+                ans += capacity;
+                ans += " Remaining";
+                break;
+            case ItemType.Seed:
+                ans += "Seed: ";
+                ans += capacity;
+                ans += " Remaining";
+                break;
+            case ItemType.Melee:
+                ans += "Stick: ";
+                ans += capacity;
+                ans += " Durability";
+                break;
+            case ItemType.Shield:
+                ans += "Shield: ";
+                ans += capacity;
+                ans += " Durability";
+                break;
+        }
+        return ans;
+    }
 
 }
