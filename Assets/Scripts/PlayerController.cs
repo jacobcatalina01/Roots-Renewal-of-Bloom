@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3((targetVelocity.x - rb.velocity.x) * .1f + rb.velocity.x,rb.velocity.y,(targetVelocity.y-rb.velocity.z)*.1f+rb.velocity.z);
 
 
-        Vector2 aim = controls.Newactionmap.Aim.ReadValue<Vector2>() * 3f;
+        Vector2 aim = controls.Newactionmap.Aim.ReadValue<Vector2>();
 
         cameraRot.transform.Rotate(new Vector3(0, 1, 0), aim.x, Space.World);
         cameraRot2.transform.Rotate(new Vector3((cameraRot2.transform.eulerAngles.x < 310&& cameraRot2.transform.eulerAngles.x > 300 && -aim.y<0) || (cameraRot2.transform.eulerAngles.x > 30 && cameraRot2.transform.eulerAngles.x < 40 && -aim.y > 0) ? 0 :-aim.y,0, 0));
