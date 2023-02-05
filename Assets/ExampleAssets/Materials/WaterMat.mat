@@ -54,14 +54,15 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _MeshDistortScale: 50
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleDensity: 50
+    - _RippleDensity: 100
     - _RippleSpeed: 1
     - _Slimness: 4.05
     - _Smoothness: 0.5
     - _WaveScaleFactor: 0.05
-    - _WaveSpeed: 0.2
+    - _WaveSpeed: 0.01
     m_Colors:
     - _Color: {r: 0.31594878, g: 0.56289583, b: 0.9433962, a: 0}
     - _RippleColor: {r: 0.5017832, g: 2.594586, b: 2.562389, a: 0}
