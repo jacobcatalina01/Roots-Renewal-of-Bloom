@@ -261,20 +261,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6276607242812976447, guid: 2eb808a96f85440efba2617038e71b25,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
     - target: {fileID: 7820365042008847823, guid: 2eb808a96f85440efba2617038e71b25,
         type: 3}
       propertyPath: m_Name
       value: Island
-      objectReference: {fileID: 0}
-    - target: {fileID: 7820365042008847823, guid: 2eb808a96f85440efba2617038e71b25,
-        type: 3}
-      propertyPath: m_TagString
-      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eb808a96f85440efba2617038e71b25, type: 3}
