@@ -1370,11 +1370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ff6d52e34ed0a4d86f57111aa575c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  item1Capacity: 0
-  item2Capacity: 0
-  item1Text: {fileID: 0}
-  item2Text: {fileID: 0}
+  sliderRef: {fileID: 0}
+  crossHair: {fileID: 0}
+  item1: {fileID: 0}
+  item2: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!1 &6005254591499212821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,6 +2234,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144729, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: crossHair
+      value: 
+      objectReference: {fileID: 6005254592056444709}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: sliderRef
+      value: 
+      objectReference: {fileID: 6005254591984813667}
     - target: {fileID: 3571832263488924510, guid: 23caf03d727e3491ba00e877f9a92645,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2454,6 +2469,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144729, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: crossHair
+      value: 
+      objectReference: {fileID: 6005254591499212821}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: sliderRef
+      value: 
+      objectReference: {fileID: 6005254591985542595}
     - target: {fileID: 3571832263488924510, guid: 23caf03d727e3491ba00e877f9a92645,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2669,6 +2699,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144729, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: crossHair
+      value: 
+      objectReference: {fileID: 6005254590309360979}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: sliderRef
+      value: 
+      objectReference: {fileID: 6005254590913256754}
     - target: {fileID: 3571832263488924510, guid: 23caf03d727e3491ba00e877f9a92645,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2889,6 +2934,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144729, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: crossHair
+      value: 
+      objectReference: {fileID: 6005254591333700864}
+    - target: {fileID: 2203572218478144731, guid: 23caf03d727e3491ba00e877f9a92645,
+        type: 3}
+      propertyPath: sliderRef
+      value: 
+      objectReference: {fileID: 6005254590285789349}
     - target: {fileID: 3571832263488924510, guid: 23caf03d727e3491ba00e877f9a92645,
         type: 3}
       propertyPath: m_AnchorMax.y
