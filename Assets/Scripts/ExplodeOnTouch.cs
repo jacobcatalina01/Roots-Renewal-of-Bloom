@@ -16,6 +16,7 @@ public class ExplodeOnTouch : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Acorn"))
         {
+            AudioManager.Play(AudioManager.Instance.explosionOnCollide);
             Instantiate(explosionVFX, col.transform.position, Quaternion.identity);
             GameObject go = Instantiate(spawnObjectRef);
             go.transform.position = col.transform.position;

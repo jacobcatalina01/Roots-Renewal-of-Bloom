@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
-    public int capacity = 5;
+    public int capacity = 2;
     public enum ItemType
     {
         Seed,
@@ -21,9 +21,9 @@ public class Item : MonoBehaviour
 
     public static Dictionary<ItemType,int> maxCapacity = new Dictionary<ItemType, int>()
     {
-        {ItemType.Seed, 10},
-        {ItemType.Acorn, 5},
-        {ItemType.Melee, 15},
+        {ItemType.Seed, 25},
+        {ItemType.Acorn, 3},
+        {ItemType.Melee, 10},
         {ItemType.Shield, 10},
     };
 
@@ -45,6 +45,7 @@ public class Item : MonoBehaviour
 
     public void PickedUp(GameObject player)
     {
+        capacity = maxCapacity[type];
         droppedBy = player;
         transform.position = new Vector3(0, -30, 0);
         gameObject.SetActive(false);

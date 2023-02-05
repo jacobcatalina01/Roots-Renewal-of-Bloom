@@ -33,7 +33,9 @@ public class GManager : MonoBehaviour
 
     private void Awake()
     {
+        
         instance = this;
+        /*
         List<PlayerController> currentPlayers = new List<PlayerController>();
         for(int i = 0; i < players.Length; i++)
         {
@@ -43,7 +45,7 @@ public class GManager : MonoBehaviour
                 currentPlayers.Add(players[i]);
             }
         }
-        players = currentPlayers.ToArray();
+        players = currentPlayers.ToArray();*/
 
     }
 
@@ -63,7 +65,7 @@ public class GManager : MonoBehaviour
         {
             Victory(winner);
         }
-        transform.Rotate(0, 1, 0);
+        transform.Rotate(0, 1*Time.deltaTime/.016f, 0);
     }
 
     void Victory(PlayerController winner)
@@ -96,6 +98,8 @@ public class GManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         yield return StartCoroutine(Flash(0, 1, 3f));
+
+        AudioManager.PlayVictory();
 
         victoryUI.SetActive(true);
         victoryCamera.gameObject.SetActive(true);
