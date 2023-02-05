@@ -36,7 +36,7 @@ public class TakesKnockback : MonoBehaviour
         {
             AudioManager.Play(AudioManager.Instance.meleehit);
             Instantiate(playerHitVFX, transform.position, Quaternion.identity);
-            TakeKnockback(transform.position - other.gameObject.transform.position, 1.5f, shielded);
+            TakeKnockback(transform.position - other.gameObject.transform.position, 3f, shielded);
             other.GetComponent<GameObjectRef>().go.Add(gameObject);
         }
     }

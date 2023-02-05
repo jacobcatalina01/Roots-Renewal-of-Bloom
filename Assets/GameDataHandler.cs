@@ -6,7 +6,7 @@ public class GameDataHandler : MonoBehaviour
 {
     public static GameDataHandler instance = null;
 
-    public bool[] players = new bool[4];
+    public bool[] players;
 
 
     // Start is called before the first frame update
