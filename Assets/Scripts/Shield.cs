@@ -12,6 +12,7 @@ public class Shield : MonoBehaviour
 
         {
             Destroy(other.gameObject);
+            pc.UseShield();
         }
     }
 }

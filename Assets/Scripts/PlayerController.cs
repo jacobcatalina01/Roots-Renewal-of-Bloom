@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Item item1;
     [SerializeField] public Item item2;
 
+    [SerializeField] Animator anim;
+    [SerializeField] UnityEngine.VFX.VisualEffect bloomingEffect;
+
     public bool hasShield
     {
         get
@@ -72,6 +75,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bloomingEffect.Stop();
         inventory = GetComponent<Inventory>();
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
@@ -198,6 +202,28 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void UseShield()
+    {
+        if(item1!=null && item1.type == Item.ItemType.Shield)
+        {
+            item1.capacity--; 
+            if (item1.capacity <= 0)
+            {
+                Destroy(item1.gameObject);
+
+            }
+        }
+        else if (item2 != null && item2.type == Item.ItemType.Shield)
+        {
+            item2.capacity--;
+            if (item2.capacity <= 0)
+            {
+                Destroy(item2.gameObject);
+
+            }
+        }
+    }
+
     public void ReloadWeapons()
     {
         Inventory inv = inventory;
@@ -247,6 +273,7 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Melee()
     {
+        anim.SetTrigger("Swing");
         GameObject meleeHB = Instantiate(meleeHurtboxRef);
         meleeHB.transform.position = transform.position + new Vector3(forward.normalized.x,0,forward.normalized.y)*.1f;
         meleeHB.GetComponent<GameObjectRef>().go.Add(gameObject);
@@ -257,11 +284,26 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WinZone"))
+        {
+            bloomingEffect.Play();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("WinZone"))
         {
             winTimer += Time.deltaTime;
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("WinZone"))
+        {
+            bloomingEffect.Stop();
         }
     }
 

@@ -15,7 +15,7 @@ public class TakesKnockback : MonoBehaviour
     {
         get
         {
-            return GetComponentInChildren <PlayerController>().hasShield;
+            return GetComponent <PlayerController>().hasShield;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -67,6 +67,7 @@ public class TakesKnockback : MonoBehaviour
         if (isShielded)
         {
             AudioManager.Play(AudioManager.Instance.shieldDeflect);
+            GetComponent<PlayerController>().UseShield();
         }
     }
 }
