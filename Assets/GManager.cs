@@ -34,6 +34,17 @@ public class GManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        List<PlayerController> currentPlayers = new List<PlayerController>();
+        for(int i = 0; i < players.Length; i++)
+        {
+            if(!GameDataHandler.instance.players[i]) Destroy(players[i].transform.parent.gameObject);
+            else
+            {
+                currentPlayers.Add(players[i]);
+            }
+        }
+        players = currentPlayers.ToArray();
+
     }
 
 

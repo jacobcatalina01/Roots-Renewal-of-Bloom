@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] UnityEngine.VFX.VisualEffect bloomingEffect;
 
+
+
+    public float inputMag;
+
     public bool hasShield
     {
         get
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     Coroutine shootCoro = null;
 
-    bool onGround;
+    public bool onGround;
     
 
     public void OnEnable()
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 axis = controls.Newactionmap.Move.ReadValue<Vector2>();
+        inputMag = axis.magnitude;
         float sin = Mathf.Sin(-1*cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
         float cos = Mathf.Cos(-1*cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
         Vector2 targetVelocity = new Vector2(cos * axis.x - sin * axis.y, sin * axis.x + cos * axis.y).normalized * mvSpeed;
