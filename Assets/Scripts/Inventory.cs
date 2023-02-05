@@ -35,6 +35,11 @@ public class Inventory : MonoBehaviour
                     }
 
                 }
+                else if(pc.item1.type == i.type)
+                {
+                    AddCapacity(pc.item1);
+                    Destroy(i.gameObject);
+                }
                 else if (pc.item2 == null)
                 {
 
@@ -49,7 +54,33 @@ public class Inventory : MonoBehaviour
                         shield.SetActive(true);
                     }
                 }
+                else if (pc.item2.type == i.type)
+                {
+
+                    AddCapacity(pc.item2);
+                    Destroy(i.gameObject);
+                }
             }
+        }
+    }
+
+    void AddCapacity(Item item)
+    {
+        switch (item.type)
+        {
+            case Item.ItemType.Seed:
+                item.capacity += Item.maxCapacity[item.type];
+                break;
+            case Item.ItemType.Acorn:
+                item.capacity += Item.maxCapacity[item.type];
+                break;
+            case Item.ItemType.Melee:
+                item.capacity = Item.maxCapacity[item.type];
+                break;
+            case Item.ItemType.Shield:
+                item.capacity = Item.maxCapacity[item.type];
+                break;
+
         }
     }
 
