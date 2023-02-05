@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
 
     Inventory inventory;
     PlayerInput controls;
-    [SerializeField] float kbForce = 300f;
     [SerializeField] float shootSpd = 4f;
     [SerializeField] float shootBombSpd = 2f;
 
@@ -233,12 +232,10 @@ public class PlayerController : MonoBehaviour
     {
         
         GameObject bomb = Instantiate(bombRef);
-        bomb.transform.position = transform.position;
-        float sin = Mathf.Sin(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
-        float cos = Mathf.Cos(-1 * cameraRot.transform.rotation.eulerAngles.y * Mathf.Deg2Rad);
+        bomb.transform.position = transform.position+transform.forward*1 + Vector3.up*1;
         bomb.GetComponent<Rigidbody>().velocity = new Vector3(
             forward.x,
-            -Mathf.Sin(cameraRot2.transform.rotation.eulerAngles.x * Mathf.Deg2Rad) + 1,
+            1,
             forward.y).normalized * shootBombSpd;
         bomb.GetComponent<GameObjectRef>().go.Add(gameObject);
         bomb.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;

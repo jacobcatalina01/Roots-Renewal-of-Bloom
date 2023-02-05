@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GameObjectRef))]
 public class ExplodeOnTouch : MonoBehaviour
 {
     public GameObject explosionVFX;
@@ -10,20 +9,17 @@ public class ExplodeOnTouch : MonoBehaviour
     [SerializeField] GameObject spawnObjectRef;
     private void Start()
     {
-        GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        //GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        //AudioManager.Play(AudioManager.Instance.explosionOnCollide);
     }
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Play");
-
-        AudioManager.Play(AudioManager.Instance.explosionOnCollide);
-        Instantiate(explosionVFX, transform.position, Quaternion.identity);
-        
-        if (!GetComponent<GameObjectRef>().go.Contains(col.gameObject))
+        if (col.gameObject.CompareTag("Acorn"))
         {
+            Instantiate(explosionVFX, col.transform.position, Quaternion.identity);
             GameObject go = Instantiate(spawnObjectRef);
-            go.transform.position = transform.position;
-            Destroy(gameObject);
+            go.transform.position = col.transform.position;
+            Destroy(col.gameObject);
         }
     }
 }

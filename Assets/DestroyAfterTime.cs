@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowObject : MonoBehaviour
+public class DestroyAfterTime : MonoBehaviour
 {
-    [SerializeField] GameObject follow;
+    [SerializeField] float lifetime = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,10 @@ public class FollowObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = follow.transform.position;
-        transform.rotation = follow.transform.rotation;
+        lifetime -= Time.deltaTime;
+        if (lifetime < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

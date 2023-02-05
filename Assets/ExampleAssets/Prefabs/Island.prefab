@@ -49,6 +49,8 @@ GameObject:
   - component: {fileID: 4400822154635990928}
   - component: {fileID: 2786871469564896701}
   - component: {fileID: 7956142707459128015}
+  - component: {fileID: 3324539593649918042}
+  - component: {fileID: 5067030826677523127}
   m_Layer: 0
   m_Name: islandmesh
   m_TagString: Untagged
@@ -135,6 +137,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5161248318676250812}
   m_Mesh: {fileID: 9023955764063960635, guid: 3705132bd4e0e404e98c4065b003c270, type: 3}
+--- !u!114 &3324539593649918042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161248318676250812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203fc6a72fe17d24cb7de3d6397bfc41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: []
+--- !u!114 &5067030826677523127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161248318676250812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e160337e519a73c478f7270ad947af98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionVFX: {fileID: 4160876262647043290, guid: 7375b9c824c6e4c8186b2b67d73ebb9f,
+    type: 3}
+  spawnObjectRef: {fileID: 7461615256052334563, guid: 1a863bbaaf4a81542ab4f989628a8baf,
+    type: 3}
 --- !u!1 &7820365042008847823
 GameObject:
   m_ObjectHideFlags: 0

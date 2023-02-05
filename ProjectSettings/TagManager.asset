@@ -10,6 +10,9 @@ TagManager:
   - Melee
   - WinZone
   - Pickup
+  - SeedPickup
+  - AcornPickup
+  - Acorn
   layers:
   - Default
   - TransparentFX

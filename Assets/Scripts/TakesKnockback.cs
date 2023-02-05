@@ -10,7 +10,7 @@ public class TakesKnockback : MonoBehaviour
 
     public int knockbacksmokecutoff;
 
-    [SerializeField] float kbForce = 10f;
+    [SerializeField] float kbForce = 50f;
     bool shielded
     {
         get
@@ -38,6 +38,15 @@ public class TakesKnockback : MonoBehaviour
             Instantiate(playerHitVFX, transform.position, Quaternion.identity);
             TakeKnockback(transform.position - other.gameObject.transform.position, 1.5f, shielded);
             other.GetComponent<GameObjectRef>().go.Add(gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //AudioManager.Play(AudioManager.Instance.meleehit);
+            TakeKnockback(transform.position - collision.gameObject.transform.position, 1f, shielded);
         }
     }
     public void TakeKnockback(Vector3 s, float scale, bool isShielded)
