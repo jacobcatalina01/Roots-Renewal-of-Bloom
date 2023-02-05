@@ -26,7 +26,7 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.item1)
+        /*if (player.item1)
         {
             item1Capacity = player.item1.capacity;
             item1Text.text = item1Capacity.ToString();
@@ -37,7 +37,7 @@ public class PlayerUI : MonoBehaviour
         {
             item2Capacity = player.item2.capacity;
             item2Text.text = item2Capacity.ToString();
-        }
+        }*/
 
         
     }
