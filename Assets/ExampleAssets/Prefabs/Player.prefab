@@ -619,6 +619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a64a8c61fd62244a4827d0988b2c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHitVFX: {fileID: 739616148990132631, guid: fb739316d6559494bb825aa569f6c23d,
+    type: 3}
+  smokeVFX: {fileID: 395062848950467901, guid: 7029200bba5d0492aa38a65d485018c1, type: 3}
   kbForce: 300
 --- !u!114 &5158240458949086338
 MonoBehaviour:
