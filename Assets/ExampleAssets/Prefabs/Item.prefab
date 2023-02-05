@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 7806644227029312232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.928592, y: -1.5345569, z: -3.1832619}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7529666385434149360}
@@ -151,7 +151,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7772224416108027970 stripped
 Transform:
@@ -166,6 +166,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806644227029312234}
     m_Modifications:
+    - target: {fileID: 261986418396551889, guid: ef27823cccd0dda4598e4ac85b0f6537,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 299623786527702328, guid: ef27823cccd0dda4598e4ac85b0f6537,
         type: 3}
       propertyPath: m_RootOrder
@@ -229,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 1108917483891189634, guid: ef27823cccd0dda4598e4ac85b0f6537,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1108917483891189634, guid: ef27823cccd0dda4598e4ac85b0f6537,
         type: 3}
@@ -361,7 +366,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7772224415676457971 stripped
 Transform:
@@ -445,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486450070758288611, guid: 790643966e5e50b4bae76b1c109cbcaa,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4486450070758288611, guid: 790643966e5e50b4bae76b1c109cbcaa,
         type: 3}

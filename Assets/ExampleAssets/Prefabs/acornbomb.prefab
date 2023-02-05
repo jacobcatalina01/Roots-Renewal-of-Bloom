@@ -177,11 +177,11 @@ GameObject:
   - component: {fileID: 2718736641713821028}
   - component: {fileID: 2463572278484251272}
   - component: {fileID: 2463572278484251273}
-  - component: {fileID: 2463572278484251275}
   - component: {fileID: 4901088126630170164}
+  - component: {fileID: -184473009610021501}
   m_Layer: 0
   m_Name: acornbomb
-  m_TagString: Untagged
+  m_TagString: Acorn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 3382542238935453662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8869679342650423882}
@@ -232,21 +232,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.015
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2463572278484251275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3382542238935453662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e160337e519a73c478f7270ad947af98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionVFX: {fileID: 4160876262647043290, guid: 7375b9c824c6e4c8186b2b67d73ebb9f,
-    type: 3}
-  spawnObjectRef: {fileID: 0}
 --- !u!114 &4901088126630170164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,3 +245,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: []
+--- !u!114 &-184473009610021501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382542238935453662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d19d269d76810d7498fc7087169a2d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
