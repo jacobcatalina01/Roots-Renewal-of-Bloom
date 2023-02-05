@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class StartRoundScreen : MonoBehaviour, PlayerInput.INewactionmapActions
 {
@@ -78,8 +79,21 @@ public class StartRoundScreen : MonoBehaviour, PlayerInput.INewactionmapActions
         }
     }
 
+    bool[] GetPlayers()
+    {
+        bool[] ans = new bool[4];
+
+        for(int i = 0; i < ans.Length; i++)
+        {
+            ans[i] = playerCards[i].occupied;
+        }
+        return ans;
+    }
+
     public void StartGame()
     {
         Debug.Log("Game requested to start!!");
+        GameDataHandler.instance.players = GetPlayers();
+        SceneManager.LoadScene("MainBattleScene");
     }
 }
