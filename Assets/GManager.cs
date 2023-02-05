@@ -13,6 +13,7 @@ public class GManager : MonoBehaviour
     public float gameLength = 5f;
     bool gameEnded = false;
     public PlayerController[] players;
+    public int[] playerIndices;
 
     [SerializeField] Image whiteScreen;
     [SerializeField] GameObject victoryUI;
@@ -33,16 +34,20 @@ public class GManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
         List<PlayerController> currentPlayers = new List<PlayerController>();
-        for(int i = 0; i < players.Length; i++)
+        List<int> currentIndices = new List<int>();
+        for (int i = 0; i < players.Length; i++)
         {
             if(!GameDataHandler.instance.players[i]) Destroy(players[i].transform.parent.gameObject);
             else
             {
                 currentPlayers.Add(players[i]);
+                currentIndices.Add(i);
             }
         }
         players = currentPlayers.ToArray();
+        playerIndices = currentIndices.ToArray();
 
     }
 
